@@ -1,35 +1,18 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
+
+        double budget, target = 1000000, percent = 0.10;
+        int years = 0;
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите номер квартиры: ");
-        int apartmentNumber = scanner.nextInt();
+        System.out.println("стартовый бюджет:");
+        budget = scanner.nextInt();
 
-        int floor = (apartmentNumber - 1) / 4 + 1; // Вычисление этажа
-        int position = (apartmentNumber - 1) % 4; // Вычисление позиции
-
-        String floorLocation;
-        String positionLocation;
-
-
-        // Определение положения позиции
-        if (position == 0) {
-            positionLocation = "слева от лифта";
-        } else if (position == 1) {
-            positionLocation = "справа от лифта";
-        } else if (position == 2) {
-            positionLocation = "дальняя с лева ";
-        } else {
-            positionLocation = "дальняя справа";
+        while (budget < target) {
+            budget += budget * percent;
+            years++;
         }
-        if (apartmentNumber <= 36) {
-            System.out.println("Этаж: " + floor);
-            System.out.println("Место: " + positionLocation);
-        }
-        while (apartmentNumber > 36) {
-            System.out.println("ДАННАЯ КВАРТИРА ОТСУТСТВУЕТ!!!");
-            break;
-        }
+        System.out.println("Ваш бюджет достигнет цели 1000000 через " + years + " лет");
     }
 }
