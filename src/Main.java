@@ -1,16 +1,25 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите кол тарелок: ");
+        int plates = sc.nextInt();
+        sc = new Scanner(System.in);
+        System.out.println("Введите кол моющего средства: ");
+        double detergent = sc.nextDouble();
 
-        int sum;
-        int[] dow = new int[7];
+        while (detergent >= 0 && plates >0){
+            detergent -= 0.5;
+            plates -= 1;
+            if(detergent >= 0){
+                DecimalFormat format = new DecimalFormat("0.00");
+                System.out.println("осталось тарелок: "+plates+" осталось средства: "+format.format(detergent));
+            }if(plates == 0) {
+                System.out.println("тарелки закончились");
+                break;
+            }
 
-        for (int i = 0; i < dow.length; i++) {
-            dow[i] = (int) ((Math.random() * (1000-0))+0);
-            System.out.println("Трата за " + (i+1) + " день: " + dow[i]);
+            }
         }
-
-        sum = dow[0] + dow[1] + dow[2] + dow[3] + dow[4] + dow[5] + dow[6];
-        System.out.println("Сумма трат за неделю: " + sum);
     }
-}
