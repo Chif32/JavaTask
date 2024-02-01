@@ -1,18 +1,18 @@
-import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        double budget, target = 1000000, percent = 0.10;
-        int years = 0;
+        String[] docs = {"Водительское", "Свидетельство", "Паспорт"};
+        String[] clients = {"Вася", "Петя", "Олег"};
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("стартовый бюджет:");
-        budget = scanner.nextInt();
-
-        while (budget < target) {
-            budget += budget * percent;
-            years++;
+        if (docs.length != clients.length) {
+            System.out.println("Ошибка");
         }
-        System.out.println("Ваш бюджет достигнет цели 1000000 через " + years + " лет");
+        else {
+            System.out.println("Загружено");
+            System.out.println(clients[0] + " предоставил " + docs[2]);
+            System.out.println(clients[1] + " предоставил " + docs[0]);
+            System.out.println(clients[2] + " предоставил " + docs[1]);
+        }
+
     }
 }
