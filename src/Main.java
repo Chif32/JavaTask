@@ -1,37 +1,21 @@
-import java.util.Scanner;
+import java.util.Calendar;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите цену:");
-        double price = scanner.nextDouble();
+        Calendar cal = Calendar.getInstance();
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
 
-        System.out.print("введите промокод:");
-        int cod = scanner.nextInt();
-
-        double discount = 0.0;
-        switch (cod) {
-            case 4525:
-                discount = 0.3;
-                break;
-            case 6424:
-            case 7012:
-                discount = 0.2;
-                break;
-            case 7647:
-            case 9011:
-            case 6612:
-                discount = 0.1;
-                break;
-
-            default:
-                System.out.println("скидка не найдена,цена: "+price);
+        if (hour >= 4 && hour < 12) {
+            System.out.println("Доброе утро");
         }
-        double totalPrice = price - (price * discount);
-        if (discount == 0) {
-            System.out.println();
-        } else {
-            System.out.println("Цена со скидкой: " + totalPrice);
+        if (hour >= 12 && hour < 18) {
+            System.out.println("Добрый день");
+        }
+        if (hour >= 18 && hour < 23) {
+            System.out.println("Добрый вечер");
+        }
+        if (hour <= 23 && hour < 3) {
+            System.out.println("Доброй ночи");
         }
     }
 }
