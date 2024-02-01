@@ -1,24 +1,35 @@
-package src;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int array [] = new int[50];
-        int max = array[0];
-        int min = 1;
-        int sum = array[0];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int)((Math.random()*50+0)+1);
-            if (max<array[i]){
-                max = array[i];
-            }if(min > array[i]){
-                min = array[i];
-            }
-            sum += array[i];
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите номер квартиры: ");
+        int apartmentNumber = scanner.nextInt();
+
+        int floor = (apartmentNumber - 1) / 4 + 1; // Вычисление этажа
+        int position = (apartmentNumber - 1) % 4; // Вычисление позиции
+
+        String floorLocation;
+        String positionLocation;
+
+
+        // Определение положения позиции
+        if (position == 0) {
+            positionLocation = "слева от лифта";
+        } else if (position == 1) {
+            positionLocation = "справа от лифта";
+        } else if (position == 2) {
+            positionLocation = "дальняя с лева ";
+        } else {
+            positionLocation = "дальняя справа";
         }
-        sum = sum/array.length;
-        System.out.println("max число в массиве: "+max);
-        System.out.println("min число в массиве: "+min);
-        System.out.println("средн значение в массиве: "+sum);
+        if (apartmentNumber <= 36) {
+            System.out.println("Этаж: " + floor);
+            System.out.println("Место: " + positionLocation);
+        }
+        while (apartmentNumber > 36) {
+            System.out.println("ДАННАЯ КВАРТИРА ОТСУТСТВУЕТ!!!");
+            break;
+        }
     }
 }
-
