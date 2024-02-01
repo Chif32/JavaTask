@@ -1,21 +1,43 @@
-import java.util.Calendar;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Calendar cal = Calendar.getInstance();
-        int hour = cal.get(Calendar.HOUR_OF_DAY);
 
-        if (hour >= 4 && hour < 12) {
-            System.out.println("Доброе утро");
+    public static void main(String[] args) {
+
+        int random = (int) (Math.random()*9)+1;
+        int i = 3;
+
+        Scanner sc = new Scanner(System.in);
+
+
+        while (i>0) {
+
+            System.out.println("Введите число от 1 до 9:");
+            int number = sc.nextInt();
+
+            if (number > 9 || number <= 0) {
+                System.out.println("число не в диапозоне от 1 до 9: \n");
+                continue;
+            }
+
+            if (number == random) {
+                System.out.println("точно в цель");
+                break;
+
+            }else if (number < random) {
+                System.out.println("число больше ");
+            }
+
+            else  {
+                System.out.println("число меньше");
+            }
+        i--;
+
         }
-        if (hour >= 12 && hour < 18) {
-            System.out.println("Добрый день");
-        }
-        if (hour >= 18 && hour < 23) {
-            System.out.println("Добрый вечер");
-        }
-        if (hour <= 23 && hour < 3) {
-            System.out.println("Доброй ночи");
+        if(i == 0){
+            System.out.println("загаданное число было: "+random);
         }
     }
 }
+
