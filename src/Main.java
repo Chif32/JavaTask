@@ -1,18 +1,16 @@
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String[] docs = {"Водительское", "Свидетельство", "Паспорт"};
-        String[] clients = {"Вася", "Петя", "Олег"};
+        int sum;
+        int[] dow = new int[7];
 
-        if (docs.length != clients.length) {
-            System.out.println("Ошибка");
-        }
-        else {
-            System.out.println("Загружено");
-            System.out.println(clients[0] + " предоставил " + docs[2]);
-            System.out.println(clients[1] + " предоставил " + docs[0]);
-            System.out.println(clients[2] + " предоставил " + docs[1]);
+        for (int i = 0; i < dow.length; i++) {
+            dow[i] = (int) ((Math.random() * (1000-0))+0);
+            System.out.println("Трата за " + (i+1) + " день: " + dow[i]);
         }
 
+        sum = dow[0] + dow[1] + dow[2] + dow[3] + dow[4] + dow[5] + dow[6];
+        System.out.println("Сумма трат за неделю: " + sum);
     }
 }
