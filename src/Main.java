@@ -1,25 +1,37 @@
 import java.util.Scanner;
-import java.text.DecimalFormat;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите кол тарелок: ");
-        int plates = sc.nextInt();
-        sc = new Scanner(System.in);
-        System.out.println("Введите кол моющего средства: ");
-        double detergent = sc.nextDouble();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите цену:");
+        double price = scanner.nextDouble();
 
-        while (detergent >= 0 && plates >0){
-            detergent -= 0.5;
-            plates -= 1;
-            if(detergent >= 0){
-                DecimalFormat format = new DecimalFormat("0.00");
-                System.out.println("осталось тарелок: "+plates+" осталось средства: "+format.format(detergent));
-            }if(plates == 0) {
-                System.out.println("тарелки закончились");
+        System.out.print("введите промокод:");
+        int cod = scanner.nextInt();
+
+        double discount = 0.0;
+        switch (cod) {
+            case 4525:
+                discount = 0.3;
                 break;
-            }
+            case 6424:
+            case 7012:
+                discount = 0.2;
+                break;
+            case 7647:
+            case 9011:
+            case 6612:
+                discount = 0.1;
+                break;
 
-            }
+            default:
+                System.out.println("скидка не найдена,цена: "+price);
+        }
+        double totalPrice = price - (price * discount);
+        if (discount == 0) {
+            System.out.println();
+        } else {
+            System.out.println("Цена со скидкой: " + totalPrice);
         }
     }
+}
