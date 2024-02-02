@@ -25,14 +25,12 @@ public class Main {
                 System.out.println("точно в цель");
                 break;
 
-            }else if (number < random) {
+            } else if (number < random) {
                 System.out.println("число больше ");
-            }
-
-            else  {
+            } else {
                 System.out.println("число меньше");
             }
-        i--;
+            i--;
 
         }
         if(i == 0){
